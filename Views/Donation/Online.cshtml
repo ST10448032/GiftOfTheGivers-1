@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Donate Online";
+}
+
+@model GiftOfTheGivers.Models.Donation
+
+        <section class="py-5">
+            <div class="container py-5">
+                <div class="text-center mb-5">
+                    <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+                        SUPPORT DISASTER RELIEF
+                    </span>
+                    <h1 class="display-5 fw-bold">
+                        Make a Difference Today
+                    </h1>
+                    <p class="lead text-muted">
+                        Your contribution helps provide food, water,
+                        shelter and essential supplies to communities
+                        affected by disasters.
+                    </p>
+                </div>
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success text-center">
+                        <h5 class="fw-bold">
+                            Donation Successful!
+                        </h5>
+                        <p class="mb-3">
+                            @TempData["SuccessMessage"]
+                        </p>
+                        @if (TempData["DonationID"] != null)
+                        {
+                            <a asp-controller="Home"
+                               asp-action="TaxCertificate"
+                               asp-route-id="@TempData["DonationID"]"
+                               class="btn btn-dark">
+                                Generate Tax Certificate
+                            </a>
+                        }
+                    </div>
+                }
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-5">
+                                <h3 class="fw-bold mb-4">
+                                    Make a Donation
+                                </h3>
+                                <form asp-controller="Home"
+                                      asp-action="Donate"
+                                      method="post">
+                                    <div asp-validation-summary="ModelOnly"
+                                         class="text-danger mb-3">
+                                    </div>
+                                    <!-- Amount -->
+                                    <div class="mb-4">
+                                        <label asp-for="Amount"
+                                               class="form-label fw-bold">
+                                            Donation Amount
+                                        </label>
+                                        <input asp-for="Amount"
+                                               type="number"
+                                               class="form-control"
+                                               placeholder="Enter amount"
+                                               min="1"
+                                               step="0.01" />
+                                        <span asp-validation-for="Amount"
+                                              class="text-danger">
+                                        </span>
+                                    </div>
+                                    <!-- Currency -->
+                                    <div class="mb-4">
+                                        <label asp-for="Currency"
+                                               class="form-label fw-bold">
+                                            Currency
+                                        </label>
+                                        <select asp-for="Currency"
+                                                class="form-select">
+                                            <option value="ZAR">
+                                                South African Rand (ZAR)
+                                            </option>
+                                            <option value="USD">
+                                                US Dollar (USD)
+                                            </option>
+                                            <option value="EUR">
+                                                Euro (EUR)
+                                            </option>
+                                        </select>
+                                        <span asp-validation-for="Currency"
+                                              class="text-danger">
+                                        </span>
+                                    </div>
+                                    <!-- Donation Type -->
+                                    <div class="mb-4">
+                                        <label asp-for="DonationType"
+                                               class="form-label fw-bold">
+                                            Donation Type
+                                        </label>
+                                        <select asp-for="DonationType"
+                                                class="form-select">
+                                            <option value="One-Time">
+                                                One-Time Donation
+                                            </option>
+                                            <option value="Recurring">
+                                                Recurring Donation
+                                            </option>
+                                        </select>
+                                        <span asp-validation-for="DonationType"
+                                              class="text-danger">
+                                        </span>
+                                    </div>
+                                    <!-- Anonymous -->
+                                    <div class="form-check mb-4">
+                                        <input asp-for="IsAnonymous"
+                                               class="form-check-input" />
+                                        <label asp-for="IsAnonymous"
+                                               class="form-check-label">
+                                            Make this donation anonymous
+                                        </label>
+                                    </div>
+                                    <!-- Submit -->
+                                    <button type="submit"
+                                            class="btn btn-warning btn-lg w-100">
+                                        Continue with Donation
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

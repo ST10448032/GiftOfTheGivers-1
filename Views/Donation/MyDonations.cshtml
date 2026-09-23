@@ -1,0 +1,108 @@
+﻿@model IEnumerable<GiftOfTheGivers.Models.Donation>
+
+@{
+    ViewData["Title"] = "My Donations";
+}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">My Donations</h1>
+
+        <p class="text-muted">
+            View all your donations and access your tax certificates.
+        </p>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center">
+            You have not made any donations yet.
+        </div>
+
+        <div class="text-center">
+            <a asp-controller="Donation"
+               asp-action="Online"
+               class="btn btn-warning">
+                Make a Donation
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Donation Type</th>
+                                <th>Reference Number</th>
+                                <th>Tax Certificate</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var donation in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @donation.DonationDate.ToString("dd MMM yyyy")
+                                    </td>
+
+                                    <td>
+                                        @donation.Currency
+                                        @donation.Amount.ToString("N2")
+                                    </td>
+
+                                    <td>
+                                        @donation.DonationType
+                                    </td>
+
+                                    <td>
+                                        @donation.ReferenceNumber
+                                    </td>
+
+                                    <td>
+                                        <a asp-controller="Donation"
+                                           asp-action="Certificate"
+                                           asp-route-id="@donation.DonationID"
+                                           class="btn btn-warning btn-sm">
+                                            View Tax Certificate
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4">
+
+            <a asp-controller="Donation"
+               asp-action="Online"
+               class="btn btn-dark">
+                Make Another Donation
+            </a>
+
+        </div>
+    }
+
+</div>
+

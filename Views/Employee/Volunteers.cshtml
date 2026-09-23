@@ -1,0 +1,73 @@
+﻿@model IEnumerable<GiftOfTheGivers.Models.Volunteer>
+
+@{
+    ViewData["Title"] = "Volunteer Sign-ups";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1>Volunteer Sign-ups</h1>
+            <p class="text-muted">
+                Registered volunteers for disaster-relief activities.
+            </p>
+        </div>
+
+        <a href="/Employee/Dashboard"
+           class="btn btn-dark">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No volunteer registrations have been submitted yet.
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Full Name</th>
+                                <th>Skills</th>
+                                <th>Availability</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var volunteer in Model)
+                            {
+                                <tr>
+                                    <td>@volunteer.VolunteerID</td>
+                                    <td>@volunteer.Name</td>
+                                    <td>@volunteer.Skills</td>
+                                    <td>@volunteer.Availability</td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>

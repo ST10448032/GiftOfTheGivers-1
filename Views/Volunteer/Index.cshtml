@@ -1,0 +1,97 @@
+﻿@model GiftOfTheGivers.Models.Volunteer
+
+@{
+    ViewData["Title"] = "Volunteer";
+}
+
+<div class="container mt-4">
+
+    <div class="text-center mb-4">
+        <h1>Become a Volunteer</h1>
+
+        <p class="lead">
+            Join Gift of the Givers in supporting communities
+            affected by disasters and humanitarian crises.
+        </p>
+    </div>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <h3 class="mb-4">Volunteer Registration</h3>
+
+            <form asp-action="Submit" method="post">
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">
+                        Full Name
+                    </label>
+
+                    <input asp-for="Name"
+                           class="form-control"
+                           placeholder="Enter your full name" />
+
+                    <span asp-validation-for="Name"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Skills" class="form-label">
+                        Skills
+                    </label>
+
+                    <input asp-for="Skills"
+                           class="form-control"
+                           placeholder="e.g. First Aid, Driving, IT" />
+
+                    <span asp-validation-for="Skills"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Availability"
+                           class="form-label">
+                        Availability
+                    </label>
+
+                    <select asp-for="Availability"
+                            class="form-select">
+
+                        <option value="">
+                            Select availability
+                        </option>
+
+                        <option value="Weekdays">
+                            Weekdays
+                        </option>
+
+                        <option value="Weekends">
+                            Weekends
+                        </option>
+
+                        <option value="Full-Time">
+                            Full-Time
+                        </option>
+
+                        <option value="Emergency Only">
+                            Emergency Only
+                        </option>
+
+                    </select>
+
+                    <span asp-validation-for="Availability"
+                          class="text-danger"></span>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-dark btn-lg">
+                    Register as Volunteer
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

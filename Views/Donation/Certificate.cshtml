@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Donation Tax Certificate";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-body text-center">
+
+            <h1 class="mb-4">
+                Donation Tax Certificate
+            </h1>
+
+            <hr />
+
+            <h4 class="mt-4">
+                Gift of the Givers Disaster Relief System
+            </h4>
+
+            <p class="mt-4">
+                Thank you for supporting humanitarian and
+                disaster-relief initiatives.
+            </p>
+
+            <div class="alert alert-success mt-4">
+
+                <strong>Donation Recorded</strong>
+
+                <p class="mb-0 mt-2">
+                    Amount:
+                    @TempData["DonationCurrency"]
+                    @TempData["DonationAmount"]
+                </p>
+
+                <p class="mb-0">
+                    Type:
+                    @TempData["DonationType"]
+                </p>
+
+            </div>
+
+            <p class="text-muted">
+                This is a prototype tax certificate generated
+                for demonstration purposes.
+            </p>
+
+            <button onclick="window.print()"
+                    class="btn btn-dark">
+                Download / Print Certificate
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

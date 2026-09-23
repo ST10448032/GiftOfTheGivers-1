@@ -1,0 +1,86 @@
+﻿@model IEnumerable<GiftOfTheGivers.Models.ReliefProject>
+
+@{
+    ViewData["Title"] = "Relief Project Updates";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1>Relief Project Updates</h1>
+            <p class="text-muted">
+                Current disaster-relief activities and project updates.
+            </p>
+        </div>
+
+        <a href="/Employee/CreateProject"
+           class="btn btn-dark">
+            Post New Update
+        </a>
+    </div>
+
+    <!-- Search Relief Projects -->
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+
+            <form asp-controller="Employee"
+                  asp-action="Projects"
+                  method="get">
+
+                
+            </form>
+
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No relief project updates were found.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+
+            @foreach (var project in Model)
+            {
+                <div class="col-md-6 mb-4">
+
+                    <div class="card shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <h4 class="card-title">
+                                @project.ProjectName
+                            </h4>
+
+                            <p class="text-muted">
+                                <strong>Location:</strong>
+                                @project.Location
+                            </p>
+
+                            <hr />
+
+                            <p>
+                                @project.Update
+                            </p>
+
+                            <small class="text-muted">
+                                Updated:
+                                @project.UpdateDate.ToString(
+                                "dd MMMM yyyy")
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+                }
+
+        </div>
+    }
+
+</div>

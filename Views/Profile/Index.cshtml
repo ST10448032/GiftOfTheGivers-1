@@ -1,0 +1,98 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityUser
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-5">
+
+                    <div class="text-center mb-4">
+
+                        <div class="display-6">👤</div>
+
+                        <h2 class="fw-bold">
+                            My Profile
+                        </h2>
+
+                        <p class="text-muted">
+                            Manage your account information.
+                        </p>
+
+                    </div>
+
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success">
+                            @TempData["SuccessMessage"]
+                        </div>
+                    }
+
+                    <dl class="row">
+
+                        <dt class="col-sm-4">
+                            Username
+                        </dt>
+
+                        <dd class="col-sm-8">
+                            @Model.UserName
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            Email
+                        </dt>
+
+                        <dd class="col-sm-8">
+                            @Model.Email
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            Phone Number
+                        </dt>
+
+                        <dd class="col-sm-8">
+                            @(string.IsNullOrWhiteSpace(Model.PhoneNumber)
+                                                        ? "Not provided"
+                                                        : Model.PhoneNumber)
+                        </dd>
+
+                    </dl>
+
+                    <div class="d-flex gap-2 mt-4">
+
+                        <a asp-controller="Profile"
+                           asp-action="Edit"
+                           class="btn btn-warning">
+                            Edit Profile
+                        </a>
+
+                        <a asp-controller="Donation"
+                           asp-action="MyDonations"
+                           class="btn btn-dark">
+                            My Donations
+                        </a>
+
+                        <a asp-controller="Home"
+                           asp-action="Index"
+                           class="btn btn-outline-secondary">
+                            Back to Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

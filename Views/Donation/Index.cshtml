@@ -1,0 +1,91 @@
+﻿@model GiftOfTheGivers.Models.Donation
+
+@{
+    ViewData["Title"] = "Make a Donation";
+}
+
+<div class="container mt-4">
+
+    <div class="text-center mb-4">
+        <h1>Support Gift of the Givers</h1>
+        <p class="lead">
+            Your contribution helps provide disaster relief
+            and humanitarian assistance.
+        </p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <h3 class="mb-4">Donation Details</h3>
+
+            <form asp-action="Submit" method="post">
+
+                <div class="mb-3">
+                    <label asp-for="Amount" class="form-label">
+                        Donation Amount
+                    </label>
+
+                    <input asp-for="Amount"
+                           class="form-control"
+                           placeholder="Enter amount" />
+
+                    <span asp-validation-for="Amount"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Currency" class="form-label">
+                        Currency
+                    </label>
+
+                    <select asp-for="Currency"
+                            class="form-select">
+
+                        <option value="ZAR">ZAR - South African Rand</option>
+                        <option value="USD">USD - US Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="DonationType" class="form-label">
+                        Donation Type
+                    </label>
+
+                    <select asp-for="DonationType"
+                            class="form-select">
+
+                        <option value="One-Time">
+                            One-Time Donation
+                        </option>
+
+                        <option value="Recurring">
+                            Recurring Donation
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input asp-for="IsAnonymous"
+                           class="form-check-input" />
+
+                    <label asp-for="IsAnonymous"
+                           class="form-check-label">
+                        Make this donation anonymous
+                    </label>
+                </div>
+
+                <button type="submit"
+                        class="btn btn-dark btn-lg">
+                    Donate Now
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

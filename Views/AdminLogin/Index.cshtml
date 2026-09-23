@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Employee / Admin Login";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card border-0 shadow-sm">
+
+                <div class="card-body p-5">
+
+                    <div class="text-center mb-4">
+
+                        <div class="display-4 mb-3">
+                            🛡️
+                        </div>
+
+                        <h2 class="fw-bold">
+                            Employee / Admin Login
+                        </h2>
+
+                        <p class="text-muted">
+                            Authorised employees only
+                        </p>
+
+                    </div>
+
+                    <form asp-controller="AdminLogin"
+                          asp-action="Index"
+                          method="post">
+
+                        @Html.AntiForgeryToken()
+
+                        <div asp-validation-summary="All"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Employee Email
+                            </label>
+
+                            <input type="email"
+                                   name="email"
+                                   class="form-control"
+                                   placeholder="Enter employee email"
+                                   required />
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-bold">
+                                Password
+                            </label>
+
+                            <input type="password"
+                                   name="password"
+                                   class="form-control"
+                                   placeholder="Enter password"
+                                   required />
+
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-dark w-100 btn-lg">
+                            Admin Login
+                        </button>
+
+                    </form>
+
+                    <div class="text-center mt-4">
+
+                        <a asp-controller="Home"
+                           asp-action="Index"
+                           class="text-decoration-none">
+                            ← Back to Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

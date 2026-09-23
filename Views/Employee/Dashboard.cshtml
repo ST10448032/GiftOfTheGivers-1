@@ -1,0 +1,189 @@
+﻿@{
+    ViewData["Title"] = "Employee Dashboard";
+}
+
+<div class="container py-5">
+
+    <!-- Header -->
+
+    <div class="mb-5">
+
+        <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+            EMPLOYEE PORTAL
+        </span>
+
+        <h1 class="fw-bold">
+            Employee Dashboard
+        </h1>
+
+        <p class="text-muted">
+            Manage volunteers, donations and disaster-relief
+            projects from one central dashboard.
+        </p>
+
+    </div>
+
+
+    <!-- Dashboard Cards -->
+
+    <div class="row g-4">
+
+
+        <!-- Volunteers -->
+
+        <div class="col-md-4">
+
+            <div class="card dashboard-card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="dashboard-icon mb-3">
+                        🤝
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Volunteers
+                    </h4>
+
+                    <p class="text-muted">
+                        View registered volunteers, their skills
+                        and their availability.
+                    </p>
+
+                    <a href="/Employee/Volunteers"
+                       class="btn btn-dark">
+
+                        Manage Volunteers
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Relief Projects -->
+
+        <div class="col-md-4">
+
+            <div class="card dashboard-card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="dashboard-icon mb-3">
+                        🚑
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Relief Projects
+                    </h4>
+
+                    <p class="text-muted">
+                        Create and manage disaster-relief
+                        project updates.
+                    </p>
+
+                    <a href="/Employee/Projects"
+                       class="btn btn-dark me-2">
+
+                        View Projects
+
+                    </a>
+
+                    <a href="/Employee/CreateProject"
+                       class="btn btn-warning mt-2">
+
+                        Post Update
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Donations -->
+
+        <div class="col-md-4">
+
+            <div class="card dashboard-card border-0 shadow-sm h-100">
+
+                <div class="card-body p-4">
+
+                    <div class="dashboard-icon mb-3">
+                        💰
+                    </div>
+
+                    <h4 class="fw-bold">
+                        Donations
+                    </h4>
+
+                    <p class="text-muted">
+                        Monitor donations submitted through
+                        the disaster-relief system.
+                    </p>
+
+                    <a href="/Employee/Donations"
+                       class="btn btn-dark">
+
+                        View Donations
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Quick Actions -->
+
+    <div class="mt-5">
+
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-body p-4">
+
+                <h4 class="fw-bold mb-3">
+                    Quick Actions
+                </h4>
+
+                <div class="d-flex flex-wrap gap-2">
+
+                    <a href="/Employee/CreateProject"
+                       class="btn btn-warning">
+
+                        + Post Relief Update
+
+                    </a>
+
+                    <a href="/Employee/Volunteers"
+                       class="btn btn-outline-dark">
+
+                        View Volunteers
+
+                    </a>
+
+                    <a href="/Employee/Projects"
+                       class="btn btn-outline-dark">
+
+                        View Relief Projects
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

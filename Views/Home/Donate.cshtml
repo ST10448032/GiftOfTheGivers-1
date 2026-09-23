@@ -1,0 +1,261 @@
+﻿@model GiftOfTheGivers.Models.Donation
+
+@{
+    ViewData["Title"] = "Donate";
+}
+
+<section class="py-5">
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="text-center mb-4">
+            <h1 class="display-3 fw-bold text-uppercase text-dark">Make a Difference</h1>
+            <p class="h4 text-muted fw-semibold">HELP THOSE IN NEED</p>
+        </div>
+
+        <!--DESCRIPTION -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10">
+                <div class="card border-0 bg-light p-4 shadow-sm">
+                    <p class="mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+                        Gift of the Givers strives to uplift the most vulnerable and marginalised
+                        communities through various humanitarian initiatives. Your contribution
+                        goes a long way in helping us to benefit mankind and give back for the
+                        greater good.
+                        <br /><br />
+                        <strong>
+                            Donations to Gift of the Givers may qualify for a tax certificate as
+                            per Section 18A, under the Income Tax Act.
+                        </strong>
+                        If you are a taxpayer in South Africa and require a tax certificate,
+                        please email
+                        <a href="mailto:donations@giftofthegivers.org" class="text-success fw-bold">
+                            donations@giftofthegivers.org
+                        </a>
+                        together with your proof of donation.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--DONATION METHODS -->
+        <div class="row g-4">
+            <!--BANKING DETAILS-->
+<div class="col-md-4">
+    <div class="card border-0 shadow-sm h-100 text-center">
+        <div class="card-body p-4 d-flex flex-column">
+            <div class="mb-3">
+                <i class="bi bi-bank fs-1 text-success"></i>
+            </div>
+            <h5 class="fw-bold">BANKING DETAILS</h5>
+            <p class="text-muted small">Direct bank transfer or EFT donations.</p>
+            <button type="button" class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#bankingModal">
+                View Details
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- DONATE ONLINE -->
+<div class="col-md-4">
+    <div class="card border-0 shadow-sm h-100 text-center">
+        <div class="card-body p-4 d-flex flex-column">
+            <div class="mb-3">
+                <i class="bi bi-credit-card fs-1 text-success"></i>
+            </div>
+            <h5 class="fw-bold">DONATE ONLINE</h5>
+            <p class="text-muted small">Secure online payment via credit/debit card.</p>
+            <a asp-controller="Donation" asp-action="Online" class="btn btn-success mt-auto">Donate Now</a>
+        </div>
+    </div>
+</div>
+
+<!--DONATE WITH SCAN TO PAY -->
+<div class="col-md-4">
+    <div class="card border-0 shadow-sm h-100 text-center">
+        <div class="card-body p-4 d-flex flex-column">
+            <div class="mb-3">
+                <i class="bi bi-qr-code fs-1 text-success"></i>
+            </div>
+            <h5 class="fw-bold">DONATE WITH SCAN TO PAY</h5>
+            <p class="text-muted small">Scan the QR code with your banking app.</p>
+            <button type="button" class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#scanModal">
+                View QR Code
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- 6. LEAVE A LEGACY - triggers modal -->
+<div class="col-md-4">
+    <div class="card border-0 shadow-sm h-100 text-center">
+        <div class="card-body p-4 d-flex flex-column">
+            <div class="mb-3">
+                <i class="bi bi-heart fs-1 text-success"></i>
+            </div>
+            <h5 class="fw-bold">LEAVE A LEGACY</h5>
+            <p class="text-muted small">Include Gift of the Givers in your will.</p>
+            <button type="button" class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#legacyModal">
+                Plan Now
+            </button>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <!-- End row -->
+
+    </div>
+
+
+<!-- MODAL 1: BANKING DETAILS                 -->
+<div class="modal fade" id="bankingModal" tabindex="-1" aria-labelledby="bankingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title fw-bold" id="bankingModalLabel">Banking Details</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+
+                <!-- Account 1: ZAR -->
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-success">Gift of the Givers Foundation</h5>
+                        <div class="row">
+                            <div class="col-sm-6"><strong>Account Number:</strong> 052137228</div>
+                            <div class="col-sm-6"><strong>Bank:</strong> Standard Bank</div>
+                            <div class="col-sm-6"><strong>Universal Code:</strong> 051001</div>
+                            <div class="col-sm-6"><strong>SWIFT Code:</strong> SBZAZAJJ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account 2: Zakaat -->
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-success">Gift of the Givers Foundation <span class="badge bg-warning text-dark">Zakaat Account</span></h5>
+                        <div class="row">
+                            <div class="col-sm-6"><strong>Account Number:</strong> 052278611</div>
+                            <div class="col-sm-6"><strong>Bank:</strong> Standard Bank</div>
+                            <div class="col-sm-6"><strong>Universal Code:</strong> 051001</div>
+                            <div class="col-sm-6"><strong>SWIFT Code:</strong> SBZAZAJJ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account 3: EUR -->
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-success">Gift of the Givers Foundation <span class="badge bg-info">EUR</span></h5>
+                        <div class="row">
+                            <div class="col-sm-6"><strong>Account Number:</strong> 090710355</div>
+                            <div class="col-sm-6"><strong>Bank:</strong> Standard Bank</div>
+                            <div class="col-sm-6"><strong>Type:</strong> Foreign Currency (Transactional)</div>
+                            <div class="col-sm-6"><strong>SWIFT:</strong> SBZAZAJJ</div>
+                            <div class="col-sm-6"><strong>Currency:</strong> (EUR)</div>
+                            <div class="col-sm-6"><strong>Name:</strong> Gift of the Givers Foundation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account 4: USD -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-success">Gift of the Givers Foundation <span class="badge bg-info">USD</span></h5>
+                        <div class="row">
+                            <div class="col-sm-6"><strong>Account Number:</strong> 090710347</div>
+                            <div class="col-sm-6"><strong>Bank:</strong> Standard Bank</div>
+                            <div class="col-sm-6"><strong>Type:</strong> Foreign Currency (Transactional)</div>
+                            <div class="col-sm-6"><strong>SWIFT:</strong> SBZAZAJJ</div>
+                            <div class="col-sm-6"><strong>Currency:</strong> (USD)</div>
+                            <div class="col-sm-6"><strong>Name:</strong> Gift of the Givers Foundation</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL 2: SCAN TO PAY                     -->
+<div class="modal fade" id="scanModal" tabindex="-1" aria-labelledby="scanModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title fw-bold" id="scanModalLabel">Scan to Pay</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <p class="text-muted">
+                    Go to the Scan to Pay App on your smartphone to scan or enter this code
+                </p>
+                <!-- The barcode/code from your image -->
+                <div class="bg-light p-4 rounded-4 border border-2 border-success d-inline-block mx-auto mb-2">
+                    <span class="display-3 fw-bold tracking-tight" style="letter-spacing: 8px; font-family: 'Courier New', monospace;">
+                        2965 1596 53
+                    </span>
+                </div>
+                <p class="small text-muted">(or enter: <strong>2965159653</strong>)</p>
+                <!-- Placeholder for a generated barcode image if you have one -->
+                <div class="mt-3">
+                    <span class="badge bg-secondary">📱 Scan with your banking app</span>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL 3: LEAVE A LEGACY                 -->
+
+<div class="modal fade" id="legacyModal" tabindex="-1" aria-labelledby="legacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title fw-bold" id="legacyModalLabel">Leave a Legacy</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <h2 class="fw-bold display-6 text-center">LEAVE A LEGACY</h2>
+                <p class="text-center h5 text-muted">HELP THOSE IN NEED</p>
+                <hr />
+
+                <h5 class="fw-bold mt-4">Leaving Gift of the Givers as a Beneficiary in your Will.</h5>
+                <p>
+                    Gift of the Givers appreciates the importance of leaving a legacy to one's heirs.
+                    Where the testator wishes to extend the remainder of the estate to beneficiaries
+                    outside of their family, Gift of the Givers may be a suitable option and is willing
+                    to accept items in kind, cash, shares, etc.
+                </p>
+
+                <div class="bg-light p-3 rounded-3 border-start border-4 border-success mt-3">
+                    <p class="fw-bold mb-2">The following information may be shared with the executor:</p>
+                    <ul class="list-unstyled mb-0">
+                        <li><strong>Registration Name:</strong> Waqful Waqifin Foundation <span class="text-muted">(Translates to Gift of the Givers in English)</span></li>
+                        <li><strong>NPO Number:</strong> 032-031</li>
+                        <li><strong>PBO Number:</strong> PBO 930018993</li>
+                        <li><strong>Address:</strong> 290 Prince Alfred Street, Pietermaritzburg, 3201</li>
+                    </ul>
+                </div>
+
+                <div class="alert alert-info mt-3">
+                    <i class="bi bi-envelope"></i> Further details may be acquired by emailing
+                    <a href="mailto:info@giftofthegivers.org" class="fw-bold">info@giftofthegivers.org</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

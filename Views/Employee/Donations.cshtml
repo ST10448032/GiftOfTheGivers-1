@@ -1,0 +1,119 @@
+﻿@model IEnumerable<GiftOfTheGivers.Models.Donation>
+
+@{
+    ViewData["Title"] = "Donations";
+}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <span class="badge bg-warning text-dark px-3 py-2 mb-2">
+                EMPLOYEE PORTAL
+            </span>
+
+            <h1 class="fw-bold">
+                Donations
+            </h1>
+
+            <p class="text-muted">
+                View and monitor donations received through the system.
+            </p>
+        </div>
+
+        <a asp-controller="Employee"
+           asp-action="Dashboard"
+           class="btn btn-outline-dark">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No donations have been recorded yet.
+        </div>
+    }
+    else
+    {
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-dark">
+
+                            <tr>
+                                <th>Donation ID</th>
+                                <th>Amount</th>
+                                <th>Currency</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Anonymous</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var donation in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        #@donation.DonationID
+                                    </td>
+
+                                    <td class="fw-bold">
+                                        @donation.Amount.ToString("N2")
+                                    </td>
+
+                                    <td>
+                                        @donation.Currency
+                                    </td>
+
+                                    <td>
+                                        @donation.DonationType
+                                    </td>
+
+                                    <td>
+                                        @donation.DonationDate.ToString("dd MMM yyyy")
+                                    </td>
+
+                                    <td>
+
+                                        @if (donation.IsAnonymous)
+                                        {
+                                            <span class="badge bg-secondary">
+                                                Anonymous
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-success">
+                                                Identified
+                                            </span>
+                                        }
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>
